@@ -12,8 +12,6 @@ from tqdm import tqdm
 from typing import List, Tuple, Optional, Callable, Dict, Any
 from abc import ABC, abstractmethod
 
-# abstract class for mask generation, 
-# and a concrete class for generating masks using the SAM model.
 
 class AbstractMaskGenerator(ABC):
     """
@@ -36,14 +34,7 @@ class AbstractMaskGenerator(ABC):
 
     @abstractmethod
     def generate_mask(self, img: str, ann: str) -> None:
-        """
-        Abstract method to generate mask for an image.
         
-        Args:
-            img (str): path to the image file.
-            ann (str): path to the annotation file.
-            mask_save_path (str): path to save the generated mask.
-        """
         pass
 
 class SAM_MaskGenerator(AbstractMaskGenerator):
@@ -66,6 +57,17 @@ class SAM_MaskGenerator(AbstractMaskGenerator):
         self.mask_predictor = SamPredictor(self.sam)
 
     def generate_mask(self, img: str, ann: str) -> Image:
+
+        """
+        Generate the mask for given image and annotation file.
+
+            Parameters:
+                img (str): path to the image.
+                ann (str): path to the annotation file.
+
+            Returns:
+                Image: the mask for the image.
+        """
 
         tree = ET.parse(ann) 
         root = tree.getroot()
