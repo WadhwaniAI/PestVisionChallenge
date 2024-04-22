@@ -1,4 +1,4 @@
-name: Libcom
+name: pestvision
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
   - conda-forge
@@ -235,4 +235,4 @@ dependencies:
       - yapf==0.40.2
       - yarl==1.9.4
       - zipp==3.18.1
-prefix: /home/siddhibrahmbhatt/miniconda3/envs/Libcom
+prefix: /home/siddhibrahmbhatt/miniconda3/envs/pestvision
