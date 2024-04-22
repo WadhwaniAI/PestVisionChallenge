@@ -88,7 +88,7 @@ Participants must also adhere to the following guidelines:
 
 (To be updated soon)
 
-## 🎉 Organizers
+## 🚀 Organizers
 
 (To be updated soon)
 
