@@ -64,8 +64,22 @@ class DeepImageBlending(AbstractPestBlending):
                  target_image_size: int = 512,
                  source_image_range_big: Tuple[int, int] = (40, 60),
                  source_image_range_small: Tuple[int, int] = (60, 80),
-                 num_steps1: int = 1000,
-                 num_steps2: int = 0):
+                 num_steps1: int = 1000):
+
+        """
+        Parameters:
+
+            outputImagesDir (str): path to the directory where the output images will be saved.
+            outputLabelsDir (str): path to the directory where the output labels will be saved.
+            outputMetadataDir (str): path to the directory where the output metadata will be saved.
+            device (str): device to run the model on.
+            max_pests_per_image (int): maximum number of pests per image.
+            target_image_size (int): size of the target image.
+            source_image_range_big (Tuple[int, int]): range for big source images.
+            source_image_range_small (Tuple[int, int]): range for small source images.
+            num_steps1 (int): number of steps for the first pass of deep image blending.
+            (Note: num_steps2 = 0)
+        """
         
         super().__init__(outputImagesDir, outputLabelsDir, outputMetadataDir, device, max_pests_per_image)
         
@@ -73,7 +87,6 @@ class DeepImageBlending(AbstractPestBlending):
         self.source_image_range_big = source_image_range_big
         self.ts = target_image_size
         self.num_steps1 = num_steps1
-        self.num_steps2 = num_steps2
 
         for split in ['train', 'val', 'test']:
 
@@ -89,6 +102,19 @@ class DeepImageBlending(AbstractPestBlending):
                                N_background: int,
                                split: str,
                                file_save_index: int):
+
+        """
+        Generate blended image using deep image blending.
+
+        Parameters:
+            
+                foreground_dataset (AbstractForegroundPestDataset): dataset of foreground images.
+                N_foreground (int): number of samples in the foreground dataset.
+                background_dataset (AbstractBackgroundDataset): dataset of background images.
+                N_background (int): number of samples in the background dataset.
+                split (str): split of the dataset.
+                file_save_index (int): index to save the file.
+        """
         
         background_sample = background_dataset[np.random.randint(N_background)]
         target_img = np.array(background_sample['image'])
@@ -273,6 +299,23 @@ class LibcomImageHarmonization(AbstractPestBlending):
                  source_image_range_big: Tuple[int, int] = (40, 60),
                  source_image_range_small: Tuple[int, int] = (60, 80),
                  model_type: str = "PCTNet"):
+
+        """
+        Parameters:
+
+            outputImagesDir (str): path to the directory where the output images will be saved.
+            outputLabelsDir (str): path to the directory where the output labels will be saved.
+            outputMetadataDir (str): path to the directory where the output metadata will be saved.
+            device (str): device to run the model on.
+            max_pests_per_image (int): maximum number of pests per image.
+            target_image_size (int): size of the target image.
+            source_image_range_big (Tuple[int, int]): range for big source images.
+            source_image_range_small (Tuple[int, int]): range for small source images.
+            model_type (str): type of the model.
+            outputTempDir (str): path to the directory where the temporary images will be saved.
+
+            Reference:https://libcom.readthedocs.io/en/latest/api.html#module-libcom.image_harmonization
+        """
         
         super().__init__(outputImagesDir, outputLabelsDir, outputMetadataDir, device, max_pests_per_image)
 
@@ -290,7 +333,23 @@ class LibcomImageHarmonization(AbstractPestBlending):
             os.makedirs(os.path.join(self.outputMetadataDir, split), exist_ok = True)
             os.makedirs(os.path.join(self.outputTempDir, split), exist_ok = True)
 
-    def create_composite(self, bg_path, fg_path, mask_path, bbox):
+    def create_composite(self, bg_path, fg_path, mask_path, bbox) -> Tuple[np.ndarray, np.ndarray]:
+
+        """
+        Create composite image by placing the foreground image on the background image according to the bbox.
+
+        Parameters:
+
+            bg_path (str): path to the background image.
+            fg_path (str): path to the foreground image.
+            mask_path (str): path to the mask image.
+            bbox (List[int]): bounding box coordinates.
+
+        Returns:
+            
+                Tuple[np.ndarray, np.ndarray]: composite image and new mask.
+        """
+
         # Load the background, foreground, and mask
         bg = cv2.imread(bg_path)
         fg = cv2.imread(fg_path)
@@ -318,6 +377,19 @@ class LibcomImageHarmonization(AbstractPestBlending):
                                N_background: int,
                                split: str,
                                file_save_index: int):
+
+        """
+        Generate blended image using libcom image harmonization.
+
+        Parameters:
+
+            foreground_dataset (AbstractForegroundPestDataset): dataset of foreground images.
+            N_foreground (int): number of samples in the foreground dataset.
+            background_dataset (AbstractBackgroundDataset): dataset of background images.
+            N_background (int): number of samples in the background dataset.
+            split (str): split of the dataset.
+            file_save_index (int): index to save the file.
+        """
         
         background_sample = background_dataset[np.random.randint(N_background)]
         target_img = np.array(background_sample['image'])
