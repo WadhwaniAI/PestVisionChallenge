@@ -100,16 +100,16 @@ The organizers extend their sincere gratitude to the MS Swaminathan Research Fou
 
 IP102 dataset, Paddy disease classification dataset, Rice Leafs dataset and the AgriPest dataset are publicly available datasets. The organizers are grateful to the authors for making these datasets available for research purposes.
 
-- IP102 dataset: Wu, X., Zhan, C., Lai, Y.K., Cheng, M.M. and Yang, J., 2019. Ip102: A large-scale benchmark dataset for insect pest recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 8787-8796).
-- Paddy disease classification dataset: Petchiammal A, Briskline Kiruba S, Murugan D, Pandarasamy Arjunan, November 18, 2022, "Paddy Doctor: A Visual Image Dataset for Automated Paddy Disease Classification and Benchmarking", IEEE Dataport, doi: https://dx.doi.org/10.21227/hz4v-af08.
-- Rice Leafs dataset: Shayan Riyaz, "Riceleafs", Kaggle, https://www.kaggle.com/datasets/shayanriyaz/riceleafs
-- AgriPest dataset: Wang, R., Liu, L., Xie, C., Yang, P., Li, R. and Zhou, M., 2021. Agripest: A large-scale domain-specific benchmark dataset for practical agricultural pest detection in the wild. Sensors, 21(5), p.1601.
+- **IP102 dataset**: Wu, X., Zhan, C., Lai, Y.K., Cheng, M.M. and Yang, J., 2019. Ip102: A large-scale benchmark dataset for insect pest recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 8787-8796).
+- **Paddy disease classification dataset**: Petchiammal A, Briskline Kiruba S, Murugan D, Pandarasamy Arjunan, November 18, 2022, "Paddy Doctor: A Visual Image Dataset for Automated Paddy Disease Classification and Benchmarking", IEEE Dataport, doi: https://dx.doi.org/10.21227/hz4v-af08.
+- **Rice Leafs dataset**: Shayan Riyaz, "Riceleafs", Kaggle, https://www.kaggle.com/datasets/shayanriyaz/riceleafs
+- **AgriPest dataset**: Wang, R., Liu, L., Xie, C., Yang, P., Li, R. and Zhou, M., 2021. Agripest: A large-scale domain-specific benchmark dataset for practical agricultural pest detection in the wild. Sensors, 21(5), p.1601.
 
 ### Code:
 
-- Deep Image Blending (https://github.com/owenzlz/DeepImageBlending):
+- **Deep Image Blending** (https://github.com/owenzlz/DeepImageBlending):
 Zhang, L., Wen, T. and Shi, J., 2020. Deep image blending. In Proceedings of the IEEE/CVF winter conference on applications of computer vision (pp. 231-240).
-- PCTNet from libcom (https://github.com/bcmi/libcom): Niu, L., Cong, W., Liu, L., Hong, Y., Zhang, B., Liang, J. and Zhang, L., 2021. Making images real again: A comprehensive survey on deep image composition. arXiv preprint arXiv:2106.14490.
-- Segment Anything (https://github.com/facebookresearch/segment-anything): Kirillov, A., Mintun, E., Ravi, N., Mao, H., Rolland, C., Gustafson, L., Xiao, T., Whitehead, S., Berg, A.C., Lo, W.Y. and Dollár, P., 2023. Segment anything. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 4015-4026).
+- **PCTNet from libcom** (https://github.com/bcmi/libcom): Niu, L., Cong, W., Liu, L., Hong, Y., Zhang, B., Liang, J. and Zhang, L., 2021. Making images real again: A comprehensive survey on deep image composition. arXiv preprint arXiv:2106.14490.
+- **Segment Anything** (https://github.com/facebookresearch/segment-anything): Kirillov, A., Mintun, E., Ravi, N., Mao, H., Rolland, C., Gustafson, L., Xiao, T., Whitehead, S., Berg, A.C., Lo, W.Y. and Dollár, P., 2023. Segment anything. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 4015-4026).
 
 
