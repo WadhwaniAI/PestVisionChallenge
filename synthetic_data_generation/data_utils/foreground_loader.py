@@ -73,6 +73,7 @@ class IP102Dataset(AbstractForegroundPestDataset):
         split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
         source_range_big ([int, int]): source (foreground) size range for big pests.
         source_range_small ([int, int]): source(foreground) size range for small pests.
+        transform (Optional[Callable]): A transform that takes in a sample and returns a transformed version.
         """
 
         super().__init__(dataset_dir, split, transform)
@@ -259,21 +260,3 @@ class ForegroundRotate(object):
 
         return sample
 
-
-if __name__ == "__main__":
-
-    dataset_dir = "/bucket/siddhi/pestvision_data/foreground/Detection_IP102/VOC2007"
-
-    transform_BlurRotate = T.Compose(
-        [ForegroundBlur(blur_prob=0.35), ForegroundRotate(rotation_prob=0.35)]
-    )
-
-    ip102_dataset = IP102Dataset(
-        dataset_dir=dataset_dir,
-        split="train",
-        source_image_range_big=(100, 200),
-        source_image_range_small=(50, 100),
-        transform=transform_BlurRotate,
-    )
-
-    print(len(ip102_dataset))
