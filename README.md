@@ -20,6 +20,20 @@ This repository contains the codebase for the Pest Detection Challenge.
 
 Participants are encouraged to think creatively, experiment, and innovate in synthetic data generation and/or model training/fine-tuning strategies to boost their models' performance on a hidden real-world test set.
 
+## Data
+
+### Synthetic Data
+The synthetic data is generated using the code in the `synthetic_data_generation` directory. It comprises background images sourced from the [Paddy disease classification dataset](!https://www.kaggle.com/competitions/paddy-disease-classification/data) and [RiceLeafs dataset](!https://www.kaggle.com/datasets/shayanriyaz/riceleafs), along with foreground pests from the [IP102 dataset](!https://github.com/xpwu95/IP102). The synthesis process involves blending the foreground pests onto the background crops using [Deep Image Blending](!https://github.com/owenzlz/DeepImageBlending) and [PCTNet image harmonization from libcom](!https://libcom.readthedocs.io/en/latest/image_harmonization.html) methods. 
+
+#### Foreground Pests
+The foreground pests consist of images sourced from the , which encompasses 102 classes of insects and pests. 
+
+#### Background Crops
+The background crops are images sourced from the Paddy disease classification dataset and the RiceLeafs dataset. 
+
+### Evaluation Data
+The evaluation data comprises real-world images of crops infested with pests. These images serve as the basis for evaluating the performance of pest detection models in real-world scenarios.
+
 ## Setup
 
 1. Clone the repository:
@@ -53,10 +67,50 @@ In addition to these metrics, participants are required to adhere to certain gui
 
 (To be updated soon)
 
-## Acknowledgements
-
-(To be updated soon)
-
 ## Organizers
 
 (To be updated soon)
+
+## Acknowledgements and citations
+
+- Paddy disease classification dataset, RiceLeafs dataset, and IP102 dataset are publicly available datasets. The organizers are grateful to the authors for making these datasets available for research purposes.
+
+```
+@inproceedings{zhang2020deep,
+  title={Deep Image Blending},
+  author={Zhang, Lingzhi and Wen, Tarmily and Shi, Jianbo},
+  booktitle={The IEEE Winter Conference on Applications of Computer Vision},
+  pages={231--240},
+  year={2020}
+}
+```
+
+```
+@article{niu2021making,
+  title={Making images real again: A comprehensive survey on deep image composition},
+  author={Niu, Li and Cong, Wenyan and Liu, Liu and Hong, Yan and Zhang, Bo and Liang, Jing and Zhang, Liqing},
+  journal={arXiv preprint arXiv:2106.14490},
+  year={2021}
+}
+```
+
+```
+@InProceedings{Guerreiro_2023_CVPR,
+    author    = {Guerreiro, Julian Jorge Andrade and Nakazawa, Mitsuru and Stenger, Bj\"orn},
+    title     = {PCT-Net: Full Resolution Image Harmonization Using Pixel-Wise Color Transformations},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {5917-5926}
+}
+```
+
+```
+@inproceedings{Wu2019Insect,
+  title={IP102: A Large-Scale Benchmark Dataset for Insect Pest Recognition},
+  author={Xiaoping Wu and Chi Zhan and Yukun Lai and Ming-Ming Cheng and Jufeng Yang},
+  booktitle={IEEE CVPR},
+  pages={8787--8796},
+  year={2019},
+}
+```
