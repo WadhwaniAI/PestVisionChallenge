@@ -392,6 +392,7 @@ class LibcomImageHarmonization(AbstractPestBlending):
                         f.write(f"{pest_class_id} {x_center/self.ts} {y_center/self.ts} {ss/self.ts} {ss/self.ts}\n")
 
                     target_img = cv2.imread(comp_img_file)
+                    #print("Generated image:", comp_img_file)
                 
                 except Exception as e:
                     print('Exception:', source_filename)
