@@ -2,3 +2,11 @@
 *pycache*
 *.pth
 *temp*
+
+#temporary synthetic data generateion test files
+test_dib*
+test_ih*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
