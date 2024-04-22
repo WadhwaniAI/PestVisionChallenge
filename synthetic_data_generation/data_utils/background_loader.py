@@ -23,13 +23,13 @@ class AbstractBackgroundDataset(Dataset, ABC):
         self, dataset_dir: str, split: str, transform: Optional[Callable] = None
     ):
 
-    """
-     Parameters:
+        """
+        Parameters:
 
-                dataset_dir (str): Path to dataset directory containing images, masks and splits.
-                split (str): a split from ['train', 'val', 'test'].
-                transform (callable, optional): Optional transform to be applied on a background sample.
-    """
+                    dataset_dir (str): Path to dataset directory containing images, masks and splits.
+                    split (str): a split from ['train', 'val', 'test'].
+                    transform (callable, optional): Optional transform to be applied on a background sample.
+        """
 
         self.split = split
         self.dataset_dir = dataset_dir
@@ -57,21 +57,21 @@ class PaddyDiseaseClassificationDataset(AbstractBackgroundDataset):
         target_size: int = 512,
     ):
 
-    """
-     Parameters:
-            
-            dataset_dir (str): Path to dataset directory containing images, annotations, masks and splits.
-                                Folder structure:
-    
-                                    dataset_dir
-                                            ├── train: jpg files should exist here
-                                            ├── val: jpg files should exist here
-                                            ├── test: jpg files should exist here
-    
-            split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
-            transform (callable, optional): Optional transform to be applied on a background sample.
-            target_size (int): Target size for the image.
-    """
+        """
+        Parameters:
+                
+                dataset_dir (str): Path to dataset directory containing images, annotations, masks and splits.
+                                    Folder structure:
+        
+                                        dataset_dir
+                                                ├── train: jpg files should exist here
+                                                ├── val: jpg files should exist here
+                                                ├── test: jpg files should exist here
+        
+                split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
+                transform (callable, optional): Optional transform to be applied on a background sample.
+                target_size (int): Target size for the image.
+        """
     
         super().__init__(dataset_dir, split, transform)
 
@@ -127,21 +127,21 @@ class RiceLeafsDataset(AbstractBackgroundDataset):
         target_size: int = 512,
     ):
 
-    """
-    Parameters:
-            
-            dataset_dir (str): Path to dataset directory containing images, annotations, masks and splits.
-                                Folder structure:
-    
-                                    dataset_dir
-                                            ├── train: jpg files should exist here
-                                            ├── val: jpg files should exist here
-                                            ├── test: jpg files should exist here
-    
-            split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
-            transform (callable, optional): Optional transform to be applied on a background sample.
-            target_size (int): Target size for the image.
-    """
+        """
+        Parameters:
+                
+                dataset_dir (str): Path to dataset directory containing images, annotations, masks and splits.
+                                    Folder structure:
+        
+                                        dataset_dir
+                                                ├── train: jpg files should exist here
+                                                ├── val: jpg files should exist here
+                                                ├── test: jpg files should exist here
+        
+                split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
+                transform (callable, optional): Optional transform to be applied on a background sample.
+                target_size (int): Target size for the image.
+        """
     
         super().__init__(dataset_dir, split, transform)
 
