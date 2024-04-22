@@ -58,6 +58,7 @@ class PaddyDiseaseClassificationDataset(AbstractBackgroundDataset):
     
             split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
             transform (callable, optional): Optional transform to be applied on a background sample.
+            target_size (int): Target size for the image.
     """
     def __init__(
         self,
@@ -124,6 +125,7 @@ class RiceLeafsDataset(AbstractBackgroundDataset):
     
             split (str): a split from ['train', 'val', 'test'] for which {split}.txt file exists.
             transform (callable, optional): Optional transform to be applied on a background sample.
+            target_size (int): Target size for the image.
     """
     def __init__(
         self,
@@ -189,6 +191,18 @@ class BackgroundRandomCrop(object):
         self.crop_prob = crop_prob
 
     def __call__(self, sample: Dict[str, Any], ts: int) -> Dict[str, Any]:
+
+        """
+        Applies random crop on the background image.
+
+        Parameters:
+
+            sample (Dict[str, Any]): A sample from the dataset.
+
+        Returns:
+            
+                Dict[str, Any]: Transformed sample.
+        """
 
         if torch.rand(1).item() < self.crop_prob:
 
