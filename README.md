@@ -90,7 +90,7 @@ This challenge is organized by [Wadhwani AI](https://www.wadhwaniai.org/), a non
 
 ### Data:
 
-The organizers extend their sincere gratitude to the MS Swaminathan Research Foundation ([MSSRF](!https://www.mssrf.org/)) for generously granting permission to include some of their collected data in the evaluation set for this competition.
+The organizers extend their sincere gratitude to the MS Swaminathan Research Foundation ([MSSRF](https://www.mssrf.org/)) for generously granting permission to include some of their collected data in the evaluation set for this competition.
 
 IP102 dataset, Paddy disease classification dataset, Rice Leafs dataset and the AgriPest dataset are publicly available datasets. The organizers are grateful to the authors for making these datasets available for research purposes.
 
