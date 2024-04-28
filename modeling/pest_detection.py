@@ -8,11 +8,15 @@ from wandb.integration.ultralytics import add_wandb_callback
 
 
 class AbstractPestDetection(ABC):
+    """
+    Abstract class for pest detection
+    """
+
     def __init__(self, device):
         self.device = device
 
     @abstractmethod
-    def load_model(self, model_name):
+    def load_model(self, model_path):
         pass
 
     @abstractmethod
@@ -26,13 +30,24 @@ class AbstractPestDetection(ABC):
 
 
 class PestDetection_yolov8(AbstractPestDetection):
+    """
+    YOLOv8 model for pest detection
+    """
 
     def __init__(self, device):
         super().__init__(device)
         self.model = None
 
-    def load_model(self, model_name):
-        self.model = YOLO(f"{model_name}.pt")
+    def load_model(self, model_path):
+        """
+        Load the YOLOv8 model
+
+        Parameters:
+
+         model_path (str): path to the model checkpoint
+        """
+
+        self.model = YOLO(model_path)
 
     def train(
         self,
