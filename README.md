@@ -1,6 +1,6 @@
 # 🪰 PestVision Challenge 🌾
 
-Welcome to the PestVision Challenge! This repository houses the codebase for the competition.
+Welcome to the PestVision Challenge! This repository houses the codebase for the competition. Please check the [challenge website](https://pestvision.wadhwaniai.org/) for more details and registration process
 
 ## 📂 Directory Structure and Usage
 
@@ -26,7 +26,7 @@ Welcome to the PestVision Challenge! This repository houses the codebase for the
 ## 📊 Data
 
 ### Synthetic Data
-Synthetic data is generated using code from the `synthetic_data_generation` directory. It combines background images from the [Paddy disease classification dataset](https://www.kaggle.com/competitions/paddy-disease-classification/data) and the [Rice Leafs dataset](https://www.kaggle.com/datasets/shayanriyaz/riceleafs) with foreground pests from the [IP102 dataset](https://github.com/xpwu95/IP102). Two blending methods are used: Deep Image Blending and PCTNet image harmonization.
+Synthetic data is generated using code from the `synthetic_data_generation` directory. It combines background images from the [Paddy disease classification dataset](https://www.kaggle.com/competitions/paddy-disease-classification/data) and the [Rice Leafs dataset](https://www.kaggle.com/datasets/shayanriyaz/riceleafs) with foreground pests from the [IP102 dataset](https://github.com/xpwu95/IP102). Two blending methods are used: [Deep Image Blending](https://github.com/owenzlz/DeepImageBlending) and [PCTNet image harmonization](https://libcom.readthedocs.io/en/latest/image_harmonization.html).
 
 #### Foreground Pests
 Images from the IP102 dataset, featuring 102 classes of insects and pests.
@@ -36,9 +36,8 @@ Images from the Paddy disease classification and Rice Leafs datasets.
 
 ### Evaluation Data
 Real-world images of crops infested with pests are used for model evaluation. 
-(more details to be updated soon)
 
-**Note**: Data details and download links will be provided soon.
+**Note**: Find more details [here](https://pestvision.wadhwaniai.org/data/index.html) (data will be available on registration to the challenge). 
 
 ## 🔧 Setup
 
@@ -64,9 +63,9 @@ Real-world images of crops infested with pests are used for model evaluation.
     wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
     ```
 
-## 📏 Evaluation Guidelines
+## 📏 📥 Evaluation and Submission Guidelines
 
-The evaluation script will be updated in the `modelling` directory, implemented as `evaluate()` method in `pest_detection.py`.
+The evaluation script will be updated in the `modeling` directory, implemented as `evaluate()` method in `pest_detection.py`.
 
 ### Evaluation Metrics
 
@@ -80,17 +79,12 @@ Participants must also adhere to the following guidelines:
 2. **Methodology for Data Generation and Curation**: Provide detailed explanations of data generation and curation techniques.
 3. **Model Building**: Share codebase, model architectures, and training procedures.
 
-## 📚 Useful Resources
+Find more details about evaluation and submission [here](https://pestvision.wadhwaniai.org/submission/index.html).
 
-(To be updated soon)
-
-## 📥 Submission Guidelines
-
-(To be updated soon)
 
 ## 🚀 Organizers
 
-(To be updated soon)
+This challenge is organized by [Wadhwani AI](https://www.wadhwaniai.org/), a non-profit organization dedicated to leveraging artificial intelligence for social impact. For any queries, please contact the PestVision team at pestvision@wadhwaniai.org.
 
 ## 🙏 Acknowledgements and Citations
 
