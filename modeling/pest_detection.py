@@ -60,6 +60,7 @@ class PestDetection_yolov8(AbstractPestDetection):
         patience,
         pretrained,
         verbose,
+        **kwargs
     ):
 
         results = self.model.train(
@@ -73,6 +74,7 @@ class PestDetection_yolov8(AbstractPestDetection):
             pretrained=pretrained,
             verbose=verbose,
             patience=patience,
+            **kwargs
         )
         self.model.val()
 
