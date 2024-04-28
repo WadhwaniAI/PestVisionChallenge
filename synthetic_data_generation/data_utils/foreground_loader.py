@@ -90,11 +90,13 @@ class IP102Dataset(AbstractForegroundPestDataset):
 
             file_names = [os.path.splitext(line.strip())[0] for line in f]
 
-        self.images = [os.path.join(images_dir, f"{name}.jpg") for name in file_names]
+        self.images = [os.path.join(
+            images_dir, f"{name}.jpg") for name in file_names]
         self.annotations = [
             os.path.join(annotations_dir, f"{name}.xml") for name in file_names
         ]
-        self.masks = [os.path.join(masks_dir, f"{name}.png") for name in file_names]
+        self.masks = [os.path.join(
+            masks_dir, f"{name}.png") for name in file_names]
 
         assert (
             len(self.images) == len(self.annotations) == len(self.masks)
@@ -161,7 +163,8 @@ class IP102Dataset(AbstractForegroundPestDataset):
                 low=self.source_image_range_big[0], high=self.source_image_range_big[1]
             )
             mask_img_resized = mask_img_orig.resize((ss, ss))
-            source_img_resized = Image.open(source_file).convert("RGB").resize((ss, ss))
+            source_img_resized = Image.open(
+                source_file).convert("RGB").resize((ss, ss))
 
         else:  # small insect
             is_big = False
@@ -170,7 +173,8 @@ class IP102Dataset(AbstractForegroundPestDataset):
                 high=self.source_image_range_small[1],
             )
             mask_img_resized = mask_img_orig.resize((ss, ss))
-            source_img_resized = Image.open(source_file).convert("RGB").resize((ss, ss))
+            source_img_resized = Image.open(
+                source_file).convert("RGB").resize((ss, ss))
 
         sample = {
             "source_img_resized": source_img_resized,
@@ -218,7 +222,8 @@ class ForegroundBlur(object):
         if torch.rand(1).item() < self.blur_prob:
 
             blurrer = T.GaussianBlur(kernel_size=(5, 7), sigma=(0.1, 3))
-            sample["source_img_resized"] = blurrer(sample["source_img_resized"])
+            sample["source_img_resized"] = blurrer(
+                sample["source_img_resized"])
 
         return sample
 
@@ -259,4 +264,3 @@ class ForegroundRotate(object):
             )
 
         return sample
-

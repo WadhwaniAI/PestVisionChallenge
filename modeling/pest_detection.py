@@ -6,6 +6,7 @@ from ultralytics import YOLO
 import wandb
 from wandb.integration.ultralytics import add_wandb_callback
 
+
 class AbstractPestDetection(ABC):
     def __init__(self, device):
         self.device = device
@@ -23,6 +24,7 @@ class AbstractPestDetection(ABC):
     # def evaluate(self):
     #     pass
 
+
 class PestDetection_yolov8(AbstractPestDetection):
 
     def __init__(self, device):
@@ -31,10 +33,32 @@ class PestDetection_yolov8(AbstractPestDetection):
 
     def load_model(self, model_name):
         self.model = YOLO(f"{model_name}.pt")
-    
-    def train(self, data_yml, no_epochs, img_size, batch_size, project_path, exp_name, patience, pretrained, verbose):
 
-        results = self.model.train(data=data_yaml, epochs=no_epochs, imgsz=img_size, batch= batch_size, device = self.device, project = project_path, name = exp_name, pretrained = pretrained, verbose = verbose, patience = patience)
+    def train(
+        self,
+        data_yml,
+        no_epochs,
+        img_size,
+        batch_size,
+        project_path,
+        exp_name,
+        patience,
+        pretrained,
+        verbose,
+    ):
+
+        results = self.model.train(
+            data=data_yml,
+            epochs=no_epochs,
+            imgsz=img_size,
+            batch=batch_size,
+            device=self.device,
+            project=project_path,
+            name=exp_name,
+            pretrained=pretrained,
+            verbose=verbose,
+            patience=patience,
+        )
         self.model.val()
 
         return results
@@ -42,6 +66,3 @@ class PestDetection_yolov8(AbstractPestDetection):
     # TODO: implment evaluate method
     # def evaluate(self):
     #     pass
-
-
-    

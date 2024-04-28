@@ -4,7 +4,7 @@ from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, SamP
 from natsort import natsorted
 from glob import glob
 import xml.etree.ElementTree as ET
-from PIL import Image 
+from PIL import Image
 import numpy as np
 import shutil
 import cv2
@@ -17,11 +17,11 @@ class AbstractMaskGenerator(ABC):
     """
     An abstract class for mask generation.
     """
-    
+
     def __init__(self, model_type: str, checkpoint_path: str, device: str):
         """
         Initialize the mask generator.
-        
+
         Args:
             model_type (str): model type.
             checkpoint_path (str): path to the checkpoint.
@@ -30,12 +30,12 @@ class AbstractMaskGenerator(ABC):
         self.model_type = model_type
         self.checkpoint_path = checkpoint_path
         self.device = device
-        
 
     @abstractmethod
     def generate_mask(self, img: str, ann: str) -> None:
-        
+
         pass
+
 
 class SAM_MaskGenerator(AbstractMaskGenerator):
     """
@@ -53,11 +53,11 @@ class SAM_MaskGenerator(AbstractMaskGenerator):
         """
         super().__init__(model_type, checkpoint_path, device)
 
-        self.sam = sam_model_registry[model_type](checkpoint=checkpoint_path).to(device=device)
+        self.sam = sam_model_registry[model_type](
+            checkpoint=checkpoint_path).to(device=device)
         self.mask_predictor = SamPredictor(self.sam)
 
     def generate_mask(self, img: str, ann: str) -> Image:
-
         """
         Generate the mask for given image and annotation file.
 
@@ -69,18 +69,18 @@ class SAM_MaskGenerator(AbstractMaskGenerator):
                 Image: the mask for the image.
         """
 
-        tree = ET.parse(ann) 
+        tree = ET.parse(ann)
         root = tree.getroot()
         bbox_coordinates = []
 
         for member in root.findall('object'):
             class_name = member[0].text
-            
+
             xmin = int(member[4][0].text)
             ymin = int(member[4][1].text)
             xmax = int(member[4][2].text)
             ymax = int(member[4][3].text)
-            
+
             bbox_coordinates.append([xmin, ymin, xmax, ymax])
 
         # saving the mask for only the first pest in the image in case of multiple pests!
@@ -95,7 +95,6 @@ class SAM_MaskGenerator(AbstractMaskGenerator):
             box=box,
             multimask_output=True
         )
-        
+
         data = Image.fromarray(masks[0])
         return data
-
