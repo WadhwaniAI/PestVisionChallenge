@@ -23,11 +23,6 @@ class AbstractPestDetection(ABC):
     def train(self):
         pass
 
-    # TODO: implement evaluate method
-    # @abstractmethod
-    # def evaluate(self):
-    #     pass
-
 
 class PestDetection_yolov8(AbstractPestDetection):
     """
@@ -79,7 +74,3 @@ class PestDetection_yolov8(AbstractPestDetection):
         self.model.val()
 
         return results
-
-    # TODO: implment evaluate method
-    # def evaluate(self):
-    #     pass
